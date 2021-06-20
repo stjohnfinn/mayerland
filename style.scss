@@ -1,0 +1,98 @@
+// $title-color: rgba(109, 241, 216, 0.8);
+$title-color: rgba(255, 255, 255, 0.8);
+$primary-accent: #ffffff;
+$secondary-accent: #ffffff;
+
+@keyframes text-glow {
+    from {
+        text-shadow: $title-color 0px 0px 0.2rem;
+    }
+
+    to {
+        text-shadow: $title-color 0px 0px 0.5rem;
+    }
+}
+
+$text-glow-anim: text-glow 3s infinite alternate;
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(10deg, rgb(10, 10, 10), rgb(70, 70, 70));
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    left: 5px;
+    bottom: 5px;
+    border: 2px $secondary-accent solid;
+    border-radius: 3px;
+    
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+        font-size: 8rem;
+        font-family: 'Racing Sans One';
+        color: $title-color;
+        text-align: center;
+        letter-spacing: 0.5rem;
+
+        animation: $text-glow-anim;
+    }
+
+    h3 {
+        margin: 0;
+        font-size: 4rem;
+        font-family: 'Racing Sans One';
+        color: $title-color;
+        animation: $text-glow-anim;
+        letter-spacing: 0.5rem;
+    }
+
+    #albums-container {
+        width: 80%;
+        min-width: 400px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+
+        .album-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 15rem;
+            width: 15rem;
+            border: 2px solid white;
+            border-radius: 2px;
+
+            h1 {
+                font-size: 1.5rem;
+                letter-spacing: unset;
+                animation: none;
+                font-family: 'Comfortaa';
+
+                padding: 10%;
+            }
+
+            a {
+                color: white;
+
+                margin: 0;
+                padding: 10%;
+                font-family: 'Mulish';
+                font-size: 1rem;
+            }
+        }
+    }
+}
