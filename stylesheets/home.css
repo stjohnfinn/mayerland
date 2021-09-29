@@ -1,0 +1,216 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+body div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-size: 8rem;
+  font-weight: 600;
+  font-style: italic;
+  text-shadow: #73ECFF 4px 4px 0px, #FF48C4 8px 8px 0px;
+  font-family: "Inter";
+}
+
+.subtitle {
+  font-size: 4rem;
+  font-style: italic;
+  font-family: "Inter";
+  font-weight: 600;
+  text-align: center;
+}
+
+hr {
+  margin: 0;
+  border: none;
+  height: 1px;
+  background-color: #b3b3b3;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#header p {
+  margin: 0;
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+#albums {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  margin-bottom: 3rem;
+}
+#albums p {
+  margin: 0;
+  padding: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+#albums #albums-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+#albums .album {
+  box-shadow: #73ECFF 4px 4px 0px, #FF48C4 8px 8px 0px;
+  background-size: cover;
+  width: min(400px, 60vw);
+  height: min(400px, 60vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem;
+}
+#albums .album .album-title {
+  font-size: 3rem;
+  font-family: "Open Sans";
+  border-radius: 2px;
+  width: 80%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+#albums .album .album-link {
+  font-size: 2rem;
+  font-family: "Open Sans";
+  border-radius: 2px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 2rem;
+  cursor: pointer;
+  position: relative;
+}
+#albums .album .album-link:hover {
+  color: white;
+}
+#albums .album .album-link:hover::after {
+  opacity: 1;
+  width: 100%;
+}
+#albums .album .album-link::after {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 2px;
+  opacity: 0;
+  content: "";
+  display: block;
+  transition: 0.2s all;
+}
+#albums #sr {
+  background-image: url("../images/srcover.png");
+}
+#albums #tsfe {
+  background-image: url("../images/tsfecover.png");
+}
+#albums #pv {
+  background-image: url("../images/pvcover.jpg");
+}
+#albums #br {
+  background-image: url("../images/b&rcover.png");
+}
+#albums #bs {
+  background-image: url("../images/bsalbumcover.jpg");
+}
+#albums #ctm {
+  background-image: url("../images/ctmalbumcover.jpg");
+}
+#albums #ht {
+  background-image: url("../images/htcover.png");
+}
+#albums #rfs {
+  background-image: url("../images/rfscover.jpg");
+}
+#albums #iwo {
+  background-image: url("../images/iwocover.jpg");
+}
+
+#user-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+#user-link #username-input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 4rem;
+}
+#user-link #username-input input {
+  height: 4rem;
+  background-color: #c4c4c4;
+  border: none;
+  border-radius: 0px;
+  font-family: "Open Sans";
+  width: 70%;
+  font-size: 2rem;
+  color: black;
+  padding-left: 1rem;
+}
+#user-link #username-input input::placeholder {
+  color: graya;
+}
+#user-link #username-input input:focus {
+  outline: none;
+}
+#user-link #username-input a {
+  background-color: #c4c4c4;
+  box-shadow: inset 0 0 0 3px #5f5f5f;
+  border-radius: 0px;
+  font-family: "Open Sans";
+  width: 10%;
+  font-size: 2rem;
+  height: 4rem;
+  font-size: 2rem;
+  margin-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.home {
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+}
+.home .home-btn {
+  background-color: #FF48C4;
+  height: 4rem;
+  color: white;
+  border: 2px black solid;
+  border-radius: 6px;
+  letter-spacing: 0.7rem;
+  font-weight: bold;
+  font-size: 2rem;
+  width: min(400px, 80vw);
+  box-shadow: black 0px 0px 2px;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=home.css.map */
