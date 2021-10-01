@@ -17,6 +17,14 @@ body {
     }
 }
 
+a {
+    text-decoration: none;
+
+    &:visited {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
 .title {
     font-size: 8rem;
     font-weight: 600;
@@ -197,7 +205,7 @@ hr {
             padding-left: 1rem;
 
             &::placeholder {
-                color: graya;
+                color: gray;
             }
 
             &:focus {
@@ -232,14 +240,15 @@ hr {
     .home-btn {
         background-color: $secondary;
         height: 4rem;
-        color: white;
+        color: rgb(255, 255, 255);
         border: 2px black solid;
         border-radius: 6px;
         letter-spacing: 0.7rem;
-        font-weight: bold;
-        font-size: 2rem;
-        width: min(400px, 80vw);
+        font-size: 1.5rem;
+        width: min(450px, 80vw);
         box-shadow: black 0px 0px 2px;
         cursor: pointer;
+        font-family: 'Open Sans';
+        font-weight: 700;
     }
 }
