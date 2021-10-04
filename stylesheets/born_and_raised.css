@@ -4,7 +4,21 @@
 }
 
 body {
-  background-color: #b8c1aa;
+  background-color: #dfdfdf;
+  background: #3c5451;
+  background: linear-gradient(156deg, #9fab93 0%, #d4d4d4 47%);
+}
+
+.awards, .song-data p {
+  color: #5f5f5f;
+}
+
+.home .home-btn {
+  background-color: #545e4e;
+}
+
+.awards .title {
+  color: #d0b179;
 }
 
 /*# sourceMappingURL=born_and_raised.css.map */
