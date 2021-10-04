@@ -1,0 +1,11 @@
+$primary: #1a1b18;
+$secondary: #545e4e;
+
+.title {
+    color: #d0b179;
+    text-shadow: $primary 4px 4px 0px, $secondary 8px 8px 0px;
+}
+
+body {
+    background-color: rgba(184,193,170,255);
+}
