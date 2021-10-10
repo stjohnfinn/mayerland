@@ -1,7 +1,6 @@
-- maybe i could have like something with choose your guitar where they choose which of john's guitars they want to use
-- have a text based game that is only unlocked after solving a secret puzzle
-- puzzle game with like fill in the blank lyrics
+- add a link to the walt grace pdf
 
-LINKS TO INCLUDE:
-- link to the artwork process for born and raised cover
-- link to the walt grace pdf
+- add guitar medals
+
+- add pedal medals
+
