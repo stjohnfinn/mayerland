@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.body {
+    color: #5f5f5f;
+    font-size: 3rem;
+    font-family: 'Open Sans';
+    margin: 0;
+}
+
+.title {
+    margin: 3rem;
+}
+
+#guitar-badges {
+    margin-bottom: 20rem;
+}
+
+#pedal-badges {
+    margin-bottom: 3rem;
+}
+
+.badge-cont {
+    border: 2px transparent solid;
+    border-radius: 10px;
+    width: min(900px, 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem;
+    overflow: hidden;
+    transition: 0.3s all;
+
+    p {
+        width: 100%;
+        text-align: center;
+        padding: 1rem;
+        border-bottom: 2px transparent solid;
+    }
+
+    .badge-desc {
+        display: none;
+
+        width: 80%;
+        text-align: center;
+        border: none;
+        font-size: 2rem;
+        font-family: 'Open Sans';
+    }
+}
+
+.earned {
+    border-color: black;
+
+    p {
+        border-color: black;
+    }
+
+    .badge-desc {
+        display: block;
+    }
+}
+
+#guitar-badges > .earned.badge-cont {
+    
+    .badge-desc {
+        color: #5f5f5f;
+    }
+
+    p {
+        color: rgb(100, 212, 240);
+    }
+}
+
+#gear-badges > .earned.badge-cont {
+
+    .badge-desc {
+        color: #5f5f5f;
+    }
+
+    p {
+        color:#ff48c4;
+    }
+}
