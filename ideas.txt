@@ -4,3 +4,4 @@
 
 - add pedal medals
 
+- add error handling for if the user rejects the request or the request fails for some reason

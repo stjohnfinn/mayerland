@@ -10,55 +10,57 @@
         <link rel='stylesheet' href='./stylesheets/album_pages.css' >
         <link rel='stylesheet' href='./stylesheets/user_page.css' >
 
+        <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+        <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
         <script src='./user.js' type='module' ></script>
     </head>
     <body>
         <p class='title'>Username</p>
         <hr>
         <div id='all-badges-cont'>
-            <p class='subtitle'>YOUR BADGES</p>
+            <p class='subtitle' id='badges-title'>YOUR BADGES</p>
             <div id='guitar-badges'>
-                <div class='badge-cont '>
+                <div class='badge-cont' id='blk01'>
                     <p class='body'>Blk 01</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's songs at least 10 times.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's songs at least 10 times.</p>
                 </div>
-                <div class='badge-cont earned'>
+                <div class='badge-cont' id='ssky'>
                     <p class='body'>Silver Sky</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's songs at least once.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's songs at least once.</p>
                 </div>
-                <div class='badge-cont '>
+                <div class='badge-cont' id='srv'>
                     <p class='body'>SRV Signature</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's songs categorized as 'blues' at least 5 times.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's songs categorized as 'blues' at least 5 times.</p>
                 </div>
-                <div class='badge-cont '>
+                <div class='badge-cont' id='mont'>
                     <p class='body'>Monterey Stratocaster</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's songs categorized as 'rock' at least 5 times.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's songs categorized as 'rock' at least 5 times.</p>
                 </div>
-                <div class='badge-cont '>
+                <div class='badge-cont' id='tele'>
                     <p class='body'>1952 Yellow Telecaster</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's songs categorized as 'folk' at least 5 times.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's songs categorized as 'folk' at least 5 times.</p>
                 </div>
-                <div class='badge-cont '>
+                <div class='badge-cont' id='sg'>
                     <p class='body'>1961 Red Gibson SG</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's love songs at least 5 times.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's love songs at least 5 times.</p>
                 </div>
-                <div class='badge-cont '>
+                <div class='badge-cont' id='dm3md'>
                     <p class='body'>Martin DM3MD</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's acoustic songs at least once.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's acoustic songs at least once.</p>
                 </div>
-                <div class='badge-cont'>
+                <div class='badge-cont' id='om28jm'>
                     <p class='body'>Martin OM28JM</p>
-                    <p class='badge-desc'>Listen to each of John Mayer's acoustic songs released after 2009 at least 5 times.</p>
+                    <p class='badge-desc'>Listened to each of John Mayer's acoustic songs released after 2009 at least 5 times.</p>
                 </div>
             </div>
             <div id='gear-badges'>
-                <div class='badge-cont'>
+                <div class='badge-cont' id='klon'>
                     <p class='body'>Klon Centaur</p>
-                    <p class='badge-desc'>Listen to John Mayer's music for 1,994 minutes in total.</p>
+                    <p class='badge-desc'>Listened to John Mayer's music for 1,994 minutes in total.</p>
                 </div>
-                <div class='badge-cont'>
+                <div class='badge-cont' id='dumble'>
                     <p class='body'>Steel-String Singer</p>
-                    <p class='badge-desc'>Listen to John Mayer's music for 200,000 minutes in total.</p>
+                    <p class='badge-desc'>Listened to John Mayer's music for 200,000 minutes in total.</p>
                 </div>
             </div>
         </div>

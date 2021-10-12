@@ -74,4 +74,17 @@ body {
   color: #ff48c4;
 }
 
+.tippy-box[data-theme~=custom] {
+  font-family: "Open Sans";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  visibility: visible;
+}
+.tippy-box[data-theme~=custom] .tippy-content {
+  padding: 1rem;
+  font-size: 1.75rem;
+}
+
 /*# sourceMappingURL=user_page.css.map */

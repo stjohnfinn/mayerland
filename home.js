@@ -29,7 +29,7 @@ function requestAuth() {
     url += '&response_type=code';
     url += '&redirect_uri=' + encodeURI(redirect_uri);
     url += '&show_dialog=true';
-    url += '&scope=user-library-read user-top-read user-read-playback-position playlist-read-private playlist-read-collaborative'
+    url += '&scope=ugc-image-upload playlist-modify-private playlist-read-private playlist-modify-public playlist-read-collaborative user-read-private user-read-email user-read-playback-state user-modify-playback-state user-read-currently-playing user-library-modify user-library-read user-read-playback-position user-read-recently-played user-top-read app-remote-control streaming user-follow-modify user-follow-read';
     window.location.href = url;
 }
 
