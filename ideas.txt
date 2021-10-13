@@ -5,3 +5,5 @@
 - add pedal medals
 
 - add error handling for if the user rejects the request or the request fails for some reason
+
+- make it so the medals link to a page on each of the gear/guitars

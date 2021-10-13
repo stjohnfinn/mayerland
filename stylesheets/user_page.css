@@ -15,12 +15,16 @@ body {
   margin: 3rem;
 }
 
-#guitar-badges {
+#main-badges {
   margin-bottom: 20rem;
 }
 
 #pedal-badges {
   margin-bottom: 3rem;
+}
+
+#user-stats-cont {
+  margin-top: 3.5rem;
 }
 
 .badge-cont {
@@ -49,9 +53,14 @@ body {
   font-size: 2rem;
   font-family: "Open Sans";
 }
+.badge-cont .body {
+  color: #bdbdbd;
+  cursor: default;
+}
 
 .earned {
   border-color: black;
+  cursor: text;
 }
 .earned p {
   border-color: black;
@@ -59,18 +68,24 @@ body {
 .earned .badge-desc {
   display: block;
 }
+.earned .body {
+  cursor: text;
+}
 
-#guitar-badges > .earned.badge-cont .badge-desc {
+#main-badges > .earned.badge-cont .badge-desc {
   color: #5f5f5f;
 }
-#guitar-badges > .earned.badge-cont p {
+#main-badges > .earned.badge-cont p {
   color: #64d4f0;
 }
 
-#gear-badges > .earned.badge-cont .badge-desc {
+#gold-badges > .earned.badge-cont {
+  box-shadow: 0px 0px 10px #73ECFF;
+}
+#gold-badges > .earned.badge-cont .badge-desc {
   color: #5f5f5f;
 }
-#gear-badges > .earned.badge-cont p {
+#gold-badges > .earned.badge-cont p {
   color: #ff48c4;
 }
 
@@ -85,6 +100,19 @@ body {
 .tippy-box[data-theme~=custom] .tippy-content {
   padding: 1rem;
   font-size: 1.75rem;
+}
+
+#badges-title-cont {
+  margin-bottom: 3rem;
+}
+#badges-title-cont .subtitle {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+#badges-title-cont .body {
+  margin: 0;
+  padding: 0;
+  font-size: 2rem;
 }
 
 /*# sourceMappingURL=user_page.css.map */
