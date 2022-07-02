@@ -26,6 +26,7 @@ const redirect_uri = 'http://127.0.0.1:5500/user.html';
 const authTokenEndpoint = 'https://accounts.spotify.com/api/token';
 
 let access_token = null;
+let refresh_token = null;
 let badgeCount = 0;
 let savedInLibrary = [];
 
@@ -49,6 +50,7 @@ function handleRedirect() {
     if (queryString.length > 0) {
         const urlParams = new URLSearchParams(queryString);
         code = urlParams.get('code');
+
     }
 
     window.history.pushState('','', redirect_uri);
@@ -91,7 +93,10 @@ function handleAuthorizationResponse() {
 
 function retrieveDataFromAPI(authResponse) {
 
-    access_token = authResponse.access_token;
+    window.localStorage.setItem('access_token', authResponse.access_token);
+    window.localStorage.setItem('refresh_token', authResponse.refresh_token);
+
+    access_token = window.localStorage.getItem('access_token');
 
     getUserInfo();
 }
@@ -127,7 +132,7 @@ async function getRecentlyHeard() {
     xhr.open('GET', 'https://api.spotify.com/v1/me/player/recently-played?limit=50', true);
     xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
     xhr.send(null);
-    xhr.onload = handleRecentlyHeard
+    xhr.onload = handleRecentlyHeard;
 }
 
 async function handleRecentlyHeard() {
@@ -177,6 +182,7 @@ async function handleTopArtists() {
     if (JMRank == 0) {
         updateBadgeCount(badgeCount+1);
         badgeElements.Blk_01.addClass('earned');
+        badgeElements.Martin_OM28JM.addClass('earned');
     } if (JMRank <= 9) {
         updateBadgeCount(badgeCount+1);
         badgeElements.Martin_OM28JM.addClass('earned');
@@ -220,57 +226,76 @@ async function handleTopTracks() {
 }
 
 async function getJMLibraryCount() {
+    checkFirst50Library();
+}
 
+function checkFirst50Library() {
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(0, 50));
+    
+    let url = 'https://api.spotify.com/v1/me/albums/contains?ids=' + getStringFromIDArray(0, 50);
+
+    xhr.open('GET', url, true);
     xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-    xhr.onload = handleLibraryCount;
-    await xhr.send(null);
-    xhr = null;
+    xhr.send(null);
+    xhr.onload = checkSecond50Library;
+}
 
-    xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(50, 100));
-    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-    xhr.onload = handleLibraryCount;
-    await xhr.send(null);
-    xhr = null;
-
-    xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(100, 150));
-    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-    xhr.onload = handleLibraryCount;
-    await xhr.send(null);
-    xhr = null;
-
-    xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(150, 192));
-    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
-    xhr.onload = handleLibraryCount;
-    await xhr.send(null);
-    xhr = null;
-
-    let savedCount = 0;
-
-    console.log(savedInLibrary);
-
-    for (let i = 0; i < savedInLibrary.length; i++) {
-        // for (let j = 0; j < savedInLibrary[i].length; j++) {
-        //     if (savedInLibrary[i][j] == true) {
-        //         savedCount++;
-        //     }
-        // }
-        console.log(savedInLibrary[i]);
+function checkSecond50Library() {
+    for (let i = 0; i < JSON.parse(this.responseText).length; i++) {
+        savedInLibrary.push(JSON.parse(this.responseText)[i]);
     }
 
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(50, 100), true);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    xhr.send(null);
+    xhr.onload = checkThird50Library;
+}
+
+function checkThird50Library() {
+    for (let i = 0; i < JSON.parse(this.responseText).length; i++) {
+        savedInLibrary.push(JSON.parse(this.responseText)[i]);
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(100, 150), true);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    xhr.send(null);
+    xhr.onload = checkLast42Library;
+}
+
+function checkLast42Library() {
+    for (let i = 0; i < JSON.parse(this.responseText).length; i++) {
+        savedInLibrary.push(JSON.parse(this.responseText)[i]);
+    }
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.spotify.com/v1/me/tracks/contains?ids=' + getStringFromIDArray(150, 192), true);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    xhr.send(null);
+    xhr.onload = handleLibraryCheck;
+}
+
+function handleLibraryCheck() {
+    for (let i = 0; i < JSON.parse(this.responseText).length; i++) {
+        savedInLibrary.push(JSON.parse(this.responseText)[i]);
+    }
+
+    let savedCount = 0;
+    for (let i = 0; i < savedInLibrary.length; i++) {
+        if (savedInLibrary[i]) {
+            savedCount++;
+        }
+    }
     if (savedCount >= 50) {
         updateBadgeCount(badgeCount+1);
         badgeElements.Steel_String_Singer.addClass('earned');
-    }if (savedCount >= 20) {
-        updateBadgeCount(badgeCount+1);
-        badgeElements.SRV_Signature.addClass('earned');
-    } if (savedCount >= 10) {
+    } if (savedCount >= 20) {
         updateBadgeCount(badgeCount+1);
         badgeElements.Tube_Screamer.addClass('earned');
+    } if (savedCount >= 10) {
+        updateBadgeCount(badgeCount+1);
+        badgeElements.SRV_Signature.addClass('earned');
     }
 }
 
@@ -295,7 +320,41 @@ function getStringFromIDArray(a, b) {
 }
 
 async function checkIfFollows() {
+    checkIfFollowsMe();
+    checkIfFollowsJohnMayer();
+}
 
+async function checkIfFollowsMe() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.spotify.com/v1/me/following/contains?type=user&ids=stjohn.finn', true);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    xhr.send(null);
+    xhr.onload = handleFollowsMe;
+
+}
+
+async function handleFollowsMe() {
+    let doesFollow = JSON.parse(this.responseText)[0];
+    if (doesFollow) {
+        updateBadgeCount(badgeCount+1);
+        badgeElements.Monterey_Strat.addClass('earned');
+    }
+}
+
+async function checkIfFollowsJohnMayer() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://api.spotify.com/v1/me/following/contains?type=artist&ids=0hEurMDQu99nJRq8pTxO14', true);
+    xhr.setRequestHeader('Authorization', 'Bearer ' + access_token);
+    xhr.send(null);
+    xhr.onload = handleFollowsJohnMayer;
+}
+
+async function handleFollowsJohnMayer() {
+    let doesFollow = JSON.parse(this.responseText)[0];
+    if (doesFollow) {
+        updateBadgeCount(badgeCount+1);
+        badgeElements.Silver_Sky.addClass('earned');
+    }
 }
 
 async function updateBadgeCount(num) {
@@ -303,6 +362,9 @@ async function updateBadgeCount(num) {
     $('#badge-count').text(num + ' of 13');
 }
 
-// function pauseExec(ms) {
-//     setTimeout(() => {}, ms);
-// }
+function refreshAccessToken() {
+    let body = 'grant_type=refresh_token';
+    body += '&refresh_token=' + refresh_token;
+    body += '&client_id=' + client_id;
+    callAuthAPI(body);
+}

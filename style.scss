@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Racing Sans One';
+    background: linear-gradient(10deg, rgb(10, 10, 10), rgb(40, 40, 40));
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    h1 {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.7);
+        font-family: 'Racing Sans One';
+        text-shadow: black 0.2rem 0.2rem 0.4rem;
+        text-align: center;
+        font-size: 6rem;
+    }
+}

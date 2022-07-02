@@ -3,12 +3,19 @@ import config from './config.js';
 let redirect_uri = 'http://127.0.0.1:5500/user.html';
 
 let client_id = config.CLIENT_ID;
-let client_secret = config.CLIENT_SECRET;
+// let client_secret = config.CLIENT_SECRET;
 
 const AUTHORIZE = 'https://accounts.spotify.com/authorize';
 
 $(document).ready(() => {
     console.log('home page loaded successfully!');
+
+    let redirect_uri = 'http://127.0.0.1:5500/user.html';
+
+    let client_id = config.CLIENT_ID;
+    // let client_secret = config.CLIENT_SECRET;
+
+    const AUTHORIZE = 'https://accounts.spotify.com/authorize';
 
     $('#submit').click(requestAuth);
 });
